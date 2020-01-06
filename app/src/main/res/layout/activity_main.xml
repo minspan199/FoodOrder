@@ -40,19 +40,30 @@
         android:weightSum="2"
         android:layout_alignParentBottom="true">
 
-        <androidx.appcompat.widget.AppCompatButton
+        <com.google.android.material.button.MaterialButton
+            android:text="Sign Up"
             android:id="@+id/btnSignUp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:shadowColor="@android:color/black"
-            android:text="Sign Up"
-            android:textColor="@android:color/white"
-            android:background="@color/btnSignUp"
-            android:shadowRadius="5.0"
-            android:elevation="3dp"
-            android:shadowDx="@android:integer/config_longAnimTime"
             android:layout_weight="1"
-            />
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/btnSignUp"
+            app:cornerRadius="50dp"
+            app:rippleColor="@color/common_google_signin_btn_text_light"
+            app:strokeColor="@color/colorPrimary"/>
+
+        <com.google.android.material.button.MaterialButton
+            android:text="Sign In"
+            android:id="@+id/btnSignIn"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@android:color/white"
+            android:backgroundTint="@color/btnSignActive"
+            app:cornerRadius="50dp"
+            app:rippleColor="@color/common_google_signin_btn_text_light"
+            app:strokeColor="@color/colorPrimary"/>
+
     </LinearLayout>
 
 </RelativeLayout>
