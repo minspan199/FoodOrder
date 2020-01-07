@@ -41,38 +41,35 @@ public class SignIn extends AppCompatActivity {
 		final FirebaseDatabase database = FirebaseDatabase.getInstance();
 		final DatabaseReference table_user = database.getReference("User");
 
-		btnSignIn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				progressBar.setVisibility(View.VISIBLE);
-				table_user.addValueEventListener(new ValueEventListener() {
-					@Override
-					public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-						//Get user info
-						progressBar.setVisibility(View.GONE);
-						//Check if user exists in the database
-						if (dataSnapshot.child(edtPhone.getText().toString()).exists()){
-							// Get Post object and use the values to update the UI
-							User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
-							if (user.getPassword().equals(edtPassword.getText().toString())){
-								Toast.makeText(SignIn.this, "Sign in sucessfully", Toast.LENGTH_SHORT).show();
-							} else {
-								Toast.makeText(SignIn.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
-							}
+		btnSignIn.setOnClickListener(v -> {
+			progressBar.setVisibility(View.VISIBLE);
+			table_user.addValueEventListener(new ValueEventListener() {
+				@Override
+				public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+					//Get user info
+					progressBar.setVisibility(View.GONE);
+					//Check if user exists in the database
+					if (dataSnapshot.child(edtPhone.getText().toString()).exists()){
+						// Get Post object and use the values to update the UI
+						User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
+						if (user.getPassword().equals(edtPassword.getText().toString())){
+							Toast.makeText(SignIn.this, "Sign in sucessfully", Toast.LENGTH_SHORT).show();
 						} else {
-							Toast.makeText(SignIn.this, "User does not exist!", Toast.LENGTH_SHORT).show();
+							Toast.makeText(SignIn.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
 						}
-
+					} else {
+						Toast.makeText(SignIn.this, "User does not exist!", Toast.LENGTH_SHORT).show();
 					}
 
-					@Override
-					public void onCancelled(@NonNull DatabaseError databaseError) {
+				}
+
+				@Override
+				public void onCancelled(@NonNull DatabaseError databaseError) {
 // Getting Post failed, log a message
-						Log.w(SignIn.class.getSimpleName(), "loadPost:onCancelled", databaseError.toException());
-						// ...
-					}
-				});
-			}
+					Log.w(SignIn.class.getSimpleName(), "loadPost:onCancelled", databaseError.toException());
+					// ...
+				}
+			});
 		});
 	}
 

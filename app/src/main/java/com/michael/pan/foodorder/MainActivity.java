@@ -23,18 +23,13 @@ public class MainActivity extends AppCompatActivity {
 		txtSlogan = findViewById(R.id.txtSlogan);
 		Typeface typeface = Typeface.createFromAsset(getAssets(), "fonts/Exo2-Regular.ttf");
 		txtSlogan.setTypeface(typeface);
-		btnSignIn.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				Intent signIn = new Intent(MainActivity.this, SignIn.class);
-				startActivity(signIn);
-			}
+		btnSignIn.setOnClickListener(v -> {
+			Intent signIn = new Intent(MainActivity.this, SignIn.class);
+			startActivity(signIn);
 		});
-		btnSignUp.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-
-			}
+		btnSignUp.setOnClickListener(v -> {
+			Intent signUp = new Intent(MainActivity.this, SignUp.class);
+			startActivity(signUp);
 		});
 	}
 }
