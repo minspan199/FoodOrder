@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -51,11 +52,12 @@ public class SignIn extends AppCompatActivity {
 						progressBar.setVisibility(View.GONE);
 						//Check if user exists in the database
 						if (dataSnapshot.child(edtPhone.getText().toString()).exists()){
+							// Get Post object and use the values to update the UI
 							User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
 							if (user.getPassword().equals(edtPassword.getText().toString())){
 								Toast.makeText(SignIn.this, "Sign in sucessfully", Toast.LENGTH_SHORT).show();
 							} else {
-								Toast.makeText(SignIn.this, "Sign in Failed", Toast.LENGTH_SHORT).show();
+								Toast.makeText(SignIn.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
 							}
 						} else {
 							Toast.makeText(SignIn.this, "User does not exist!", Toast.LENGTH_SHORT).show();
@@ -65,7 +67,9 @@ public class SignIn extends AppCompatActivity {
 
 					@Override
 					public void onCancelled(@NonNull DatabaseError databaseError) {
-
+// Getting Post failed, log a message
+						Log.w(SignIn.class.getSimpleName(), "loadPost:onCancelled", databaseError.toException());
+						// ...
 					}
 				});
 			}

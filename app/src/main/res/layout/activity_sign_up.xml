@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SignUp"
+    android:background="@drawable/food_bg"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/gradient_bg" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_margin="50dp"
+            android:orientation="vertical">
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edtPhone2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone Number"
+                android:inputType="number"
+                android:text="0988123456"
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/white"
+                android:textSize="34sp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="11"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edtName2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Name"
+                android:inputType="text"
+                android:text=" "
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textSize="34sp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="11"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true" />
+
+            <com.rengwuxian.materialedittext.MaterialEditText
+                android:id="@+id/edtPassword2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Password"
+                android:inputType="textPassword"
+                android:text=""
+                android:textColor="@android:color/black"
+                android:textColorHint="@android:color/black"
+                android:textSize="34sp"
+                app:met_baseColor="@android:color/black"
+                app:met_floatingLabel="highlight"
+                app:met_maxCharacters="16"
+                app:met_primaryColor="@android:color/black"
+                app:met_singleLineEllipsis="true" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnSignUp2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="30dp"
+                android:layout_marginRight="30dp"
+                android:backgroundTint="@color/btnSignUp"
+                android:text="Sign Up"
+                android:textColor="@android:color/white"
+                app:cornerRadius="50dp"
+                app:rippleColor="@color/common_google_signin_btn_text_light"
+                app:strokeColor="@color/colorPrimary" />
+
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+    </FrameLayout>
+
+</LinearLayout>
