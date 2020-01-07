@@ -2,6 +2,7 @@ package com.michael.pan.foodorder;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,8 @@ public class MainActivity extends AppCompatActivity {
 		btnSignIn.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-
+				Intent signIn = new Intent(MainActivity.this, SignIn.class);
+				startActivity(signIn);
 			}
 		});
 		btnSignUp.setOnClickListener(new View.OnClickListener() {
