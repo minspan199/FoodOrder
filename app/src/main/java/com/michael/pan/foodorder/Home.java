@@ -75,7 +75,7 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 		//Set name for user
 		View headerView = navigationView.getHeaderView(0);
-		txtFullName = findViewById(R.id.txtFullName);
+		txtFullName = headerView.findViewById(R.id.txtFullName);
 		txtFullName.setText(Common.currentUser.getName());
 
 		//Load Menu
@@ -111,7 +111,17 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 
 	@Override
 	public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-		return false;
+		int id = menuItem.getItemId();
+		if (id == R.id.nav_cart){
+
+		} else if (id == R.id.nav_menu){
+
+		} else if (id == R.id.nav_log_out){
+
+		} else if (id == R.id.nav_orders){
+
+		}
+		return true;
 	}
 
 //	@Override
