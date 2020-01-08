@@ -1,6 +1,7 @@
 package com.michael.pan.foodorder;
 
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -19,6 +20,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.michael.pan.foodorder.Common.Common;
 import com.michael.pan.foodorder.Model.User;
 
 public class SignIn extends AppCompatActivity {
@@ -54,6 +56,10 @@ public class SignIn extends AppCompatActivity {
 						User user = dataSnapshot.child(edtPhone.getText().toString()).getValue(User.class);
 						if (user.getPassword().equals(edtPassword.getText().toString())){
 							Toast.makeText(SignIn.this, "Sign in sucessfully", Toast.LENGTH_SHORT).show();
+							Intent homeIntent = new Intent(SignIn.this, Home.class);
+							Common.currentUser = user;
+							startActivity(homeIntent);
+							finish();
 						} else {
 							Toast.makeText(SignIn.this, "Incorrect password!", Toast.LENGTH_SHORT).show();
 						}
