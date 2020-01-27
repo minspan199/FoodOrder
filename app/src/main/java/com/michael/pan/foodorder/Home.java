@@ -90,7 +90,6 @@ public class Home extends AppCompatActivity implements NavigationView.OnNavigati
 	private void loadMenu() {
 		FirebaseRecyclerAdapter<Category, MenuViewHolder> adapter =
 			new FirebaseRecyclerAdapter<Category, MenuViewHolder>(Category.class, R.layout.menu_item, MenuViewHolder.class, category) {
-
 				@Override
 				protected void populateViewHolder(MenuViewHolder menuViewHolder, Category category, int i) {
 					menuViewHolder.txtMenuName.setText(category.getName());
